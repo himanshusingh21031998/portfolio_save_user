@@ -16,11 +16,9 @@ app.post('/save_user_data', async (req, res)=> {
     }
 })
 
-
-app.get('/', (req,res) => {
-res.json({status: 'success'})
-}   
-)
+app.get('/', async (req, res) => {
+    res.json({status: 'success'})
+})
 
 app.listen(5000, () => {
     console.log("app listening at port 5000");

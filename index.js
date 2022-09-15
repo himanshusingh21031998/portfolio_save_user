@@ -1,9 +1,12 @@
+const cors = require('cors')
 const express = require('express');
 const User = require('./model/user');
 const { mongoConnect } = require('./mongo_config')
 
 const app = express()
 
+
+app.use(cors())
 app.use(express.json());
 
 app.post('/save_user_data', async (req, res)=> {

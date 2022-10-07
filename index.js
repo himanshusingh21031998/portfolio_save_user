@@ -10,7 +10,7 @@ app.use(cors())
 
 app.use(express.json());
 
-
+// routes
 
 app.post('/save_user_data', async (req, res)=> {
     const data = req.body

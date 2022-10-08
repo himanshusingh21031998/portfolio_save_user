@@ -1,7 +1,8 @@
 const cors = require('cors')
 const express = require('express');
 const User = require('./model/user');
-const { mongoConnect } = require('./mongo_config')
+const { mongoConnect } = require('./mongo_config');
+const sendMail = require('./nodemailer_config');
 
 const app = express()
 
@@ -15,7 +16,8 @@ app.use(express.json());
 app.post('/save_user_data', async (req, res)=> {
     const data = req.body
     try {
-        await User.create(data)
+        const user = await User.create(data)
+        await sendMail(user.name, user.username)
         res.json({status: 'success'})
     } catch (error) {
         res.json({status: 'fail', error: error.message})
@@ -26,8 +28,8 @@ app.get('/', async (req, res) => {
     res.json({status: 'success'})
 })
 
-// app listen on port 5000
+// app listen on port 6000
 
-app.listen(5000, () => {
-    console.log("app listening at port 5000");
+app.listen(8080, () => {
+    console.log("app listening at port 6000");
 })

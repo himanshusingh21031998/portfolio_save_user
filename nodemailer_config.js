@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 
-
+const LIVE_SERVER = 'mygarxefbxjdzalr'
+const LOCALHOST = 'vlweakulqxomkvhk'
 
 const sendMail = async (name, email) => {
     const transporter = nodemailer.createTransport({
@@ -8,7 +9,7 @@ const sendMail = async (name, email) => {
         secure: true,
         auth: {
           user: 'himanshusinghcoder@gmail.com',
-          pass: 'vlweakulqxomkvhk'
+          pass: LIVE_SERVER
         }
       });
       

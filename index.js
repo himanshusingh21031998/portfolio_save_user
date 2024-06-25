@@ -17,7 +17,7 @@ app.post('/save_user_data', async (req, res)=> {
     const data = req.body
     try {
         const user = await User.create(data)
-        await sendMail(user.name, user.username)
+        // await sendMail(user.name, user.username)
         res.json({status: 'success'})
     } catch (error) {
         res.json({status: 'fail', error: error.message})

@@ -9,7 +9,7 @@ const sendMail = async (name, email) => {
         secure: true,
         auth: {
           user: 'himanshusinghcoder@gmail.com',
-          pass: LOCALHOST
+          pass: LIVE_SERVER
         }
       });
       
